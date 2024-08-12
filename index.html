@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScriptとHTMLの基本</title>
+    <meta name="discription" content="JSの解説ページ">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Reset CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+
+  <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+    <link rel="stylesheet" href="css/Desktop-main.css">
+    <link rel="stylesheet" href="css/Tablet-main.css">
+    <link rel="stylesheet" href="css/Smartphone-main.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+  <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/favicon.png">
+  </head>
+
+  <body>
+    <div class="main-content split wrapper">
+      <div class="split-item split-left">
+        <h2 class="page-title">【JavaScript入門】JavaScriptとHTMLの基本・関係</h2>
+        <p class="timer"><i class="fa-solid fa-clock"></i> 最終更新: 2024/08/12</p>
+        <img src="img/header.png" alt="ヘッダー用画像">
+
+        <div class="tablet-smartphone-contents">
+          <h3 class="sub-title">目次 <i class="fa-solid fa-book"></i></h3>
+          <a href="#chapter1">　JavaScriptとは</a><br>
+          <a href="#chapter2">　HTMLとは</a><br>
+          <a href="#chapter3">　HTMLでJavaScriptを読み込む方法</a><br>
+          <a href="#chapter">　JavaScriptで何が作れるのか</a><br>
+        </div>
+
+        <header class="chapter-title">最初に</header>
+        <p>Webページの作成には、最低限HTMLやCSSが必要ですが、
+          それだけでは文字を読むだけの単調なサイトになってしまいます。
+          そこでJavaScriptを用いると、様々な動きのあるサイトに仕上げることができます！<br>
+          このページでは、JavaScriptとHTMLの基本から活用方法までを解説していきます。</p>
+
+
+        <header class="chapter-title" id="chapter1">JavaScriptとは <i class="fa-solid fa-laptop-code"></i></header>
+        <p>JavaScriptは、Webブラウザ上で動作するプログラミング言語です。
+          <strong>Webページに複雑な機能を実装する</strong>ことができる他、Webサービスを実装したりすることが出来ます。<br>
+          また、スクリプト言語の一種であるため、即座に実行が可能であり、迅速な開発が行えます。</p>
+
+        <header class="sub-title">JavaとJavaScript違い</header>
+        <p>似たような名前の「Java」という言語があります。<br>
+          JavaはSun Microsystems社が開発した、JVMという仮想マシン上で動作し、
+          <strong>バックエンド</strong>（ユーザーが直接触れない部分）の開発に用いられる言語です。<br>
+          Javaはコンパイラ言語といって、事前にコンパイルする言語です。
+          コンパイラ言語なので<strong>処理スピードが速く</strong>、様々な場面で用いられます。<br><br>
+
+          一方、JavaScriptはNetscape Communications社が開発した、<strong>フロントエンド</strong>（ユーザーが直接触れる部分）の開発に用いられる言語です。
+          活用例は後述しますが、スライドショーの作成やポップアップウィンドウの表示などが出来ます。<br>
+          また、一般的なブラウザにはJavaScriptを実行する機能が標準で搭載されている為、
+          <strong>ブラウザさえあれば実行できる</strong>のも大きな特徴です。<br><br>
+
+          上記の通り、JavaとJavaScriptは開発した会社から使用用途まで全く違う言語です。よく「メロンとメロンパンくらい違う」という例え方をされます。</p>
+
+
+        <header class="chapter-title" id="chapter2">HTMLとは <i class="fa-solid fa-laptop-code"></i></header>
+        <p>HTMLは「HyperText Markdown Language」の略称で、
+          Webページを記述する際に用いるマークアップ言語です。
+          &lt;a&gt;&lt;/a&gt;や&lt;strong&gt;&lt;/strong&gt;などの「タグ」と呼ばれるものを使ってマークアップすることでページ構造を定義する言語です。
+          よくCSSと併せてWebページの開発に用いられているのでご存じの方も多いかもしれませんね。</p>
+
+
+        <header class="chapter-title" id="chapter3">HTMLでJavaScriptを読み込む方法 <i class="fa-solid fa-wrench"></i></header>
+        <p>HTMLでJavaScriptを読み込む方法は大きく分けて<br>
+        <ul class="decimal-list">
+          <li>HTMLファイル内に直接記述する</li>
+          <li>外部ファイルを読み込む</li>
+        </ul>
+          の2つがあります。それぞれ詳しく見ていきましょう。</p>
+
+        <header class="sub-title">1. HTMLファイル内に直接記述する</header>
+        <p>まずは、HTMLファイル内に直接記述する方法です。
+          この方法では、bodyタグまたはheadタグの中に&lt;script&gt;&lt/script&gt;を用いて記述します。<br></p>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;bodyに記述する&lt;/title&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;button onclick="showAlert()"&gt;
+      ここをクリック&lt;/button&gt;
+    &lt;script&gt;
+      function showAlert() {
+        alert("ボタンが押されました")
+      }
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        <p>bodyタグ内にJavaScriptを記述してみました。<br>
+          bodyタグ内にscriptタグがあり、その中にJavaScriptのコードが記述されています
+          （headタグ内にJavaScriptを記述する場合も方法は全く同じなのでここでは割愛します）。<br><br>
+          HTMLファイル内に直接記述する方法は、短いコードであったり、
+          そのページにのみ処理を適応したい場合には有効な方法です。<br>
+          しかし、違うページに同じ処理を適応したい場合、
+          HTMLファイル内に直接記述すると重複コードが発生してしまいます。
+          その他、HTMLファイルの読み込み中にJavaScriptが読み込まれるので、ページの読み込みが遅くなります。</p>
+
+        <header class="sub-title">2. 外部ファイルを読み込む</header>
+        <p>1. で発生してしまう重複コードを省くためにこちらの方法が良く使われています。<br>
+          ここでは、適応したい処理を記述したJavaScriptのファイル名を"main.js"とします。</p>
+
+        <pre><code>&lt;script src="main.js"&gt;&lt;/script&gt;</code></pre>
+        <p>上記のようにscriptタグでsrc属性をつけてファイルを指定するとJavaScriptを適応することが出来ます。
+            当然、正しくパスを指定すればファイル分けをしていたとしても問題なく動作します。<br><br>
+            また、このコードを記述する場所は&lt;/body&gt;の直前が推奨されています。
+            先ほども述べましたが、途中でJavaScriptファイルが読み込まれてページの読み込みが遅くなる事を避ける為です。
+        </p>
+
+
+        <header class="chapter-title" id="chapter4">JavaScriptで何が作れるのか <i class="fa-solid fa-wrench"></i></header>
+        <p>ここからはJavaScriptとHTMLを組み合わせて制作されているものをいくつか紹介します。</p>
+
+        <header class="sub-title">動きを付ける</header>
+        <div class="fadeIn fi">
+          フェードイン
+        </div>
+        <p>簡単なフェードインのアニメーションを作成してみました。
+          このくらい簡単なアニメーションであればCSSでも十分ですが、
+          「スクロールして見えるようになるまでアニメーションを再生しない」
+          という処理はJavaScriptがなければ実装できません。<br>
+          その他、背景に動画を埋め込んで動きを与えたり、
+          スクロールに合わせて背景や手前の要素が動く<strong>パララックス</strong>などを実装することが出来ます。
+        </p>
+
+        <header class="sub-title">スライドショー</header>
+        <div class="slide-wrapper">
+          <div id="slide" class="slide">
+            <div>
+              <p>スライドショーの例</p>
+            </div>
+            <div>
+              <p>手動で切り替えられます</p>
+            </div>
+            <div>
+              <p>一定時間で自動的に変化します</p>
+            </div>
+          </div>
+
+          <span id="prev" class="prev"></span>
+          <span id="next" class="next"></span>
+
+          <ul class="indicator" id="indicator">
+            <li class="list"></li>
+            <li class="list"></li>
+            <li class="list"></li>
+          </ul>
+        </div>
+        <p>画像が上の例のようにスライドショー形式で掲載されているサイトを見たことが一度はあると思います。
+          このようなスライドショーはJavaScriptを用いて制御されている場合がほとんどです。</p>
+
+        <header class="sub-title">ポップアップウィンドウ</header>
+        <input type="button" id="btn" value="ここをクリック、タップ">
+        <div id="box">
+          <p id="close">×
+            <h3>ポップアップ</h3>
+          </p>
+        </div>
+        <p>この小さいウィンドウを表示する機能がポップアップウィンドウです。<br>
+          ユーザーが何かしらアクションを起こした際、確認や情報の提供を目的として表示されます。
+          ポップアップウィンドウは、通常JavaScriptを用いて作成されます。</p>
+
+        <header class="sub-title">フォーム</header>
+        <img src="img/contact.png" alt="お問い合わせフォームの例">
+        <p>お問い合わせフォームなどのフォームもJavaScriptで制作されています。
+          入力値を確認し、記入漏れがあると
+          「必要項目が記述されていません」などのエラーを表示させることなどもできます。
+        </p>
+
+
+        <header class="chapter-title" id="chapter5">まとめ</header>
+        <p>このページでは、JavaScript/HTMlの概要から活用例までを解説しました。
+          このページで紹介した活用例はほんの一部ですが、JavaScriptを取り入れるとより複雑な動きを実装することが出来ます。<br>
+          是非JavaScriptを習得して活用してみて下さい。
+        </p><br>
+
+        <div class="line"></div>
+
+        <div class="container">
+          <img src="img/my-icon.jpg" alt="アイコン">
+          <p><strong>書いた人: ゆきねこ｡</strong><br>
+            高専生です。プログラミングを主に勉強しています。<br>
+            <i class="fa-solid fa-clock"></i> 制作時間: 約15時間</p>
+        </div>
+      </div>
+
+      <div class="split-item split-right">
+        <div class="split-solid">
+          <h3 class="sub-title">目次 <i class="fa-solid fa-book"></i></h3>
+          <a href="#chapter1">　JavaScriptとは</a><br>
+          <a href="#chapter2">　HTMLとは</a><br>
+          <a href="#chapter3">　HTMLでJavaScriptを読み込む方法</a><br>
+          <a href="#chapter4">　JavaScriptで何が作れるのか</a><br>
+          <a href="#chapter5">　まとめ</a>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+    <!-- to page top -->
+      <a class="pagetop" href="#"><div class="pagetop_arrow"></div></a>
+
+    <!-- copy right -->
+      <div class="wrapper">
+        <p><small>&copy; 2024 ykNe0372</small></p>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+      <script src="js/slide-show.js"></script>
+      <script src="js/fadeIn.js"></script>
+      <script src="js/pop-up.js"></script>
+  </body>
+</html>
